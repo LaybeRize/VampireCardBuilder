@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dinb4mxjn872k"]
+
+[ext_resource type="Texture2D" uid="uid://deh3kmr2ost23" path="res://ressources/image/world_images/player_sprite.png" id="1_i270i"]
+[ext_resource type="Script" path="res://code/player.gd" id="1_wgrx2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1k24a"]
+radius = 387.466
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lat3v"]
+size = Vector2(46, 61)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u3fby"]
+radius = 17.0074
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_wgrx2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_i270i")
+hframes = 2
+
+[node name="DetectionBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Box" type="CollisionShape2D" parent="DetectionBox"]
+shape = SubResource("CircleShape2D_1k24a")
+debug_color = Color(0.192157, 0.627451, 0.392157, 0.419608)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Box" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(4, 6.5)
+shape = SubResource("RectangleShape2D_lat3v")
+debug_color = Color(0.886275, 0.282353, 0.45098, 0.419608)
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(4, 18.5)
+shape = SubResource("CircleShape2D_u3fby")
+
+[node name="FireballTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="FireballTimer" to="." method="_on_timer_timeout"]

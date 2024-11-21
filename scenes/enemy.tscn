@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://earyvouosfpp"]
+
+[ext_resource type="Script" path="res://code/enemy.gd" id="1_jqbx0"]
+[ext_resource type="Texture2D" uid="uid://c31005d6in3nc" path="res://ressources/image/world_images/juggernaut.png" id="2_jpnhb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rygrn"]
+radius = 32.0624
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_jqbx0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_jpnhb")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rygrn")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7g5q7obkflrm"]
+
+[ext_resource type="Script" path="res://code/hand.gd" id="1_0a5qg"]
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_0a5qg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Spawn" type="Node2D" parent="CanvasLayer"]
+position = Vector2(960, 1030)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://53wixpsoomdk"]
+
+[ext_resource type="Script" path="res://code/CardImages.gd" id="1_c4k1c"]
+[ext_resource type="Texture2D" uid="uid://cdof04de7wohc" path="res://ressources/image/card_images/Trollface_non-free.png" id="2_kbn3h"]
+[ext_resource type="Script" path="res://code/RotateImage.gd" id="3_illmt"]
+[ext_resource type="Texture2D" uid="uid://dvnnelkk23n0m" path="res://ressources/image/card_images/amogus.png" id="4_kn5sb"]
+[ext_resource type="Script" path="res://code/MoveImage.gd" id="5_wynt1"]
+[ext_resource type="Texture2D" uid="uid://bbikihy3ku0fu" path="res://ressources/image/card_images/stuff.png" id="6_vu8nj"]
+[ext_resource type="Texture2D" uid="uid://b5u5euaddiai3" path="res://ressources/image/card_images/clock_base.png" id="7_d1skq"]
+[ext_resource type="Texture2D" uid="uid://ndfs08i5ve7r" path="res://ressources/image/card_images/clock_handel.png" id="8_wnhq7"]
+
+[node name="CardImages" type="Node2D"]
+script = ExtResource("1_c4k1c")
+
+[node name="TrollFace" type="Node2D" parent="."]
+
+[node name="CardImage" type="Sprite2D" parent="TrollFace"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_kbn3h")
+
+[node name="RotatingAmogus" type="Node2D" parent="."]
+script = ExtResource("3_illmt")
+
+[node name="CardImage" type="Sprite2D" parent="RotatingAmogus"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_kn5sb")
+
+[node name="MovingStuff" type="Node2D" parent="."]
+script = ExtResource("5_wynt1")
+
+[node name="CardImage" type="Sprite2D" parent="MovingStuff"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_vu8nj")
+
+[node name="RotatingClock" type="Node2D" parent="."]
+script = ExtResource("3_illmt")
+Speed = 0.25
+
+[node name="Clock" type="Sprite2D" parent="RotatingClock"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_d1skq")
+
+[node name="CardImage" type="Sprite2D" parent="RotatingClock"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_wnhq7")
